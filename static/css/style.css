@@ -4,6 +4,8 @@ body {
 
 h1 {
     color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
 }
 
 .button {
@@ -41,7 +43,7 @@ h1 {
     transition: 0.5s;
     padding-top: 0%;
     top: 7px;
-    right: 8px;
+    right: 10px;
 }
 
 .button1:hover {
@@ -95,4 +97,49 @@ h1 {
     text-decoration: none;
     background-color: #b16010;
     color: #ffffff;
+}
+
+.textfield {
+    border-color: #e27b13;
+    border-width: 2pt;
+    height: 50px;
+}
+
+hr {
+    height: 4px;
+    border-radius: 5px;
+    border-width: 0;
+    background-color: #e27b13
+}
+
+.list-group-mine .list-group-item {
+    color: aliceblue;
+    background-color: #122029;
+    border-top: 1px solid #2f4c53;
+}
+
+.list-group-mine .list-group-item:hover {
+    background-color: #192b36;
+    border-top: 1px solid #184652;
+    border-bottom: 1px solid #184652;
+    border-left-color: #e27b13;
+    border-right-color: #e27b13;
+}
+
+.list-group-mine .list-group-item:active {
+    background-color: #2b4a5e;
+    border-top: 1px solid #184652;
+    border-bottom: 1px solid #184652;
+    border-left-color: #e27b13;
+    border-right-color: #e27b13;
+}
+
+.underline {
+    border-bottom: 1px solid #184652;
+}
+
+.border-results {
+    border-style: solid;
+    border-radius: 6px;
+    border-color: #e27b13;
 }

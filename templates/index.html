@@ -1,11 +1,30 @@
 {% extends 'base.html' %} {% block content %}
 <br>
-<h1>Welcome to Tangy</h1><br>
+<h1>Welcome to tangy</h1><br>
 
 <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
-    <div class="input-group-append">
-        <button class="button2 btn2" type="button">Submit</button>
-    </div>
+    <form class="input-group mb-3 textfield" action="{{ url_for('model')}}" method="POST">
+        <input type="text" class="form-control textfield" style="border-top-left-radius: 5pt; border-bottom-left-radius: 5pt; border-color: #e27b13; border-width: 2pt; height: 50px;" placeholder="University website url" aria-label="University website url" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="button2 btn2" type="submit">Submit</button>
+        </div>
+    </form>
 </div>
-{% endblock %}
+
+<!-- <div>
+    <br> <br>
+</div> -->
+
+
+{% if result == True %}
+<hr style="height:4px; border-radius:5px; border-width:0;background-color:#e27b13">
+<br>
+
+<div class="list-group list-group-mine border-results">
+    <a href="#" class="list-group-item list-group-item-action underline">link1</a>
+    <a href="#" class="list-group-item list-group-item-action underline">link2</a>
+    <a href="#" class="list-group-item list-group-item-action underline">link3</a>
+    <a href="#" class="list-group-item list-group-item-action underline">link4</a>
+</div>
+
+{% endif %} {% endblock %}
