@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from crawler import webcrawl
 
 app = Flask(__name__, static_url_path='/static')
 
