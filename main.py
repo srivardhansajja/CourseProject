@@ -9,7 +9,8 @@ def index():
 
 @app.route('/model', methods=['POST'])
 def model():
-    return render_template('index.html', result=True, value='Hello')
+    urls = webcrawl()
+    return render_template('index.html', result=True, faculty_page_urls=urls)
 
 if __name__ == "__main__":
     app.run(debug=True)
