@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 from crawler import webcrawl
 
 app = Flask(__name__, static_url_path='/static')
@@ -9,7 +9,8 @@ def index():
 
 @app.route('/model', methods=['POST'])
 def model():
-    urls = webcrawl()
+    primary_url = request.form['primary_url']
+    urls = webcrawl(primary_url)
     return render_template('index.html', result=True, faculty_page_urls=urls)
 
 if __name__ == "__main__":

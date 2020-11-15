@@ -1,5 +1,6 @@
-def webcrawl():
+def webcrawl(primary_url):
     return [
+        primary_url, primary_url, primary_url,
         'https://csc.as.miami.edu/people/index.html/',
         'https://www.marquette.edu/mscs/facstaff-fac-directory.shtml/',
         'https://engineering.vanderbilt.edu/eecs/faculty-staff/index.php/',
