@@ -39,7 +39,7 @@ class FacultyPageSpider(scrapy.Spider):
             if len(matching_urls) >= match_limit or elapsed_time >= time_limit:
                 raise scrapy.exceptions.CloseSpider(reason='limit_reached')
             if ('faculty' in link.url or 'staff' in link.url) and link.url not in a:
-                with open('matched_urls.jsonl', 'a') as f:
+                with open('crawler/matched_urls.txt', 'a') as f:
                     f.write(link.url + '\n')
                 matching_urls.add(link.url)
             if link.url not in a:
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     time_limit_ = int(sys.argv[3])
     match_limit_ = int(sys.argv[4])
     
-    with open('matched_urls.jsonl', 'w') as f:
+    with open('crawler/matched_urls.txt', 'w') as f:
         f.write('')
 
     urls, size, time = callSpider(domain_, start_url_, time_limit_, match_limit_)
