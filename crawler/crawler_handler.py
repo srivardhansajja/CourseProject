@@ -1,5 +1,4 @@
 import subprocess
-import math
 
 def webcrawl(primary_url):
 
@@ -7,7 +6,7 @@ def webcrawl(primary_url):
     starter = "https://" + domain
 
     time_limit = 100
-    match_limit = 20
+    match_limit = 30
 
     py_ver = 'python3.8'
 

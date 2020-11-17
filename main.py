@@ -20,11 +20,11 @@ def model():
 
     stats['urls_found'] = len(filtered_urls)
     stats['url'] = primary_url
-    # print("stats",stats)
+
     return render_template('index.html', result=True, 
                                          faculty_page_urls=filtered_urls,
                                          stats = stats)
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=4996)
+    app.run(debug=True, port=3000)
