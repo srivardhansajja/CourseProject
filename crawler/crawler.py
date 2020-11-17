@@ -22,6 +22,8 @@ elapsed_time = 0
 time_limit = 0
 match_limit = 0
 
+total_crawled = 0
+
 
 class FacultyPageSpider(scrapy.Spider):
 
@@ -30,6 +32,7 @@ class FacultyPageSpider(scrapy.Spider):
     def parse(self, response):
 
         global elapsed_time
+        global total_crawled
 
         le = LinkExtractor(deny=ignore)
         for link in le.extract_links(response):
@@ -39,10 +42,9 @@ class FacultyPageSpider(scrapy.Spider):
             if len(matching_urls) >= match_limit or elapsed_time >= time_limit:
                 raise scrapy.exceptions.CloseSpider(reason='limit_reached')
             if ('faculty' in link.url or 'staff' in link.url) and link.url not in a:
-                with open('crawler/matched_urls.txt', 'a') as f:
-                    f.write(link.url + '\n')
                 matching_urls.add(link.url)
             if link.url not in a:
+                total_crawled += 1
                 a.add(link.url)
                 yield Request(link.url, callback=self.parse)
 
@@ -53,6 +55,7 @@ def callSpider(domain_, start_url_, time_limit_, match_limit_):
     global match_limit
     global start_time
     global elapsed_time
+    global total_crawled
 
     time_limit = time_limit_
     match_limit = match_limit_
@@ -66,7 +69,7 @@ def callSpider(domain_, start_url_, time_limit_, match_limit_):
                                      start_urls      = [start_url_],)
     process.start()
 
-    return matching_urls, len(matching_urls), elapsed_time
+    return matching_urls, len(matching_urls), elapsed_time, total_crawled
 
 
 if __name__ == "__main__":
@@ -83,8 +86,19 @@ if __name__ == "__main__":
     
     with open('crawler/matched_urls.txt', 'w') as f:
         f.write('')
+    with open('crawler/statistics.txt', 'w') as f:
+        f.write('')
 
-    urls, size, time = callSpider(domain_, start_url_, time_limit_, match_limit_)
+    urls, size, time, total = callSpider(domain_, start_url_, time_limit_, match_limit_)
+
+    with open('crawler/matched_urls.txt', 'a') as f:
+        for url in urls:
+            f.write(url + '\n')
+
+    with open('crawler/statistics.txt', 'a') as f:
+        f.write(str(size) + '\n')
+        f.write(str(time) + '\n')
+        f.write(str(total) + '\n')
 
     # print("size:", size)
     # print("time:", time)
