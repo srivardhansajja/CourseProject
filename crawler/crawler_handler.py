@@ -1,4 +1,5 @@
 import subprocess
+import math
 
 def webcrawl(primary_url):
 
@@ -21,4 +22,10 @@ def webcrawl(primary_url):
         for line in f:
             urls.append(line)
 
-    return urls
+    stats = dict()
+    with open('crawler/statistics.txt', 'r') as f:
+        f.readline()
+        stats['time'] = round(float(f.readline()[:-1]), 3)
+        stats['total_crawled'] = int(f.readline()[:-1])
+
+    return urls, stats

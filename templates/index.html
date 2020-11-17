@@ -1,32 +1,82 @@
 {% extends 'base.html' %} {% block content %}
-    <br />
-    <h1>Welcome to tangy</h1>
-    <br />
+
+    <script type="text/javascript">
+        function loading(){ 
+            document.getElementById('loading').style.display='block';
+        }
+    </script>
+
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg" style="padding-left: -40px; margin-left: -13px;">
+                <h1>Welcome to tangy
+                </h1>
+            </div>
+            <div class="col-sm">
+                <h1>
+                    <div id="loading" class="spinner-border" role="status" style="margin-top: 18px; color: #e27b13; float: right; display:none;">
+                    </div>
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <br>
 
     <div class="input-group mb-3">
-    <form class="input-group mb-3 textfield" action="{{ url_for('model')}}" method="POST">
-        <input name="primary_url" type="text" class="form-control textfield" 
-            style=" border-top-left-radius: 5pt; border-bottom-left-radius: 5pt; border-color: #e27b13; border-width: 2pt; height: 50px;"
-            placeholder="University website url" aria-label="University website url" aria-describedby="basic-addon2"/>
-        <div class="input-group-append">
-        <button class="button2 btn2" type="submit">Submit</button>
-        </div>
-    </form>
+        <form class="input-group mb-3 textfield" action="{{ url_for('model')}}" method="POST">
+            <input name="primary_url" type="text" class="form-control textfield" 
+                style=" border-top-left-radius: 5pt; border-bottom-left-radius: 5pt; border-color: #e27b13; border-width: 2pt; height: 50px;"
+                placeholder="University website url" aria-label="University website url" aria-describedby="basic-addon2"/>
+            <div class="input-group-append">
+                <button class="button2 btn2" onclick="loading()" type="submit">Submit</button>
+            </div>
+        </form>
     </div>
 
     {% if result == True %}
-
-        <hr style=" height: 4px; border-radius: 5px; border-width: 0; background-color: #e27b13;"/>
-        <br>
-
-        <div class="list-group list-group-mine border-results">
-
-        {% for link in faculty_page_urls %}
-            <a href="{{link}}" target="_blank" class="list-group-item list-group-item-action underline">{{link}}</a>
-        {% endfor %}
-
+    <hr style=" height: 4px; border-radius: 5px; border-width: 0; background-color: #e27b13;"/>
+    <div class="row">
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon" style="background-color:#184652; color: #ffffff;">url</div>
+                </div>
+                <input type="text" class="form-control" value="{{stats['url']}}" style="background-color:#cecece;" readonly>
+            </div>
         </div>
-
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon" style="background-color:#184652; color: #ffffff;">Pages Found</div>
+                </div>
+                <input type="text" class="form-control" value="{{stats['urls_found']}}" style="background-color:#cecece;" readonly>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon" style="background-color:#184652; color: #ffffff;">Pages Crawled</div>
+                </div>
+                <input type="text" class="form-control" value="{{stats['total_crawled']}}" style="background-color:#cecece;" readonly>
+            </div>
+        </div>
+        <div class="col">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" id="btnGroupAddon" style="background-color:#184652; color: #ffffff;">Execution Time</div>
+                </div>
+                <input type="text" class="form-control" value="{{stats['time']}}s" style="background-color:#cecece;" readonly>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="list-group list-group-mine border-results">
+        {% for link in faculty_page_urls %}
+        <a href="{{link}}" target="_blank" class="list-group-item list-group-item-action underline">{{link}}</a>
+        {% endfor %}
+    </div>
     {% endif %}
-
 {% endblock %}
