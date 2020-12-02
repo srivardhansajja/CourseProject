@@ -1,24 +1,8 @@
-def read_corpus():
+
+def train(train_set : list, train_labels : list) -> None:
     pass
 
-def build_model():
+def test(model : None, dev_set : list) -> list:
+    # import random
+    # return [random.randint(0,1) for _ in dev_set]
     pass
-
-def classify():
-    pass
-
-def test():
-    pass
-
-def create_physical_model():
-    pass
-
-def main():
-    read_corpus()
-    build_model()
-    classify()
-    test()
-    create_physical_model()
- 
-if __name__ == "__main__":
-    main()

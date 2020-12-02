@@ -152,7 +152,9 @@
 1 https://www.davidson.edu/academic-departments/mathematics-and-computer-science/faculty-staff
 1 https://www.csun.edu/engineering-computer-science/computer-science/computer-science-faculty
 1 https://www.clemson.edu/cecas/departments/me/people/faculty/index.html
-0 http://www.cs.washington.edu/people/faculty/lazowska/1 https://econ.gatech.edu/people/faculty0 http://www.ics.uci.edu/faculty/profiles/view_faculty.php?ucinetid=eppstein
+0 http://www.cs.washington.edu/people/faculty/lazowska/
+1 https://econ.gatech.edu/people/faculty
+0 http://www.ics.uci.edu/faculty/profiles/view_faculty.php?ucinetid=eppstein
 0 https://me.vt.edu/people/faculty/pitchumani-ranga.html
 0 https://school.eecs.wsu.edu/faculty/profile/?nid=bzeng
 1 https://www.utdallas.edu/physics/faculty/
@@ -410,7 +412,7 @@
 0 https://me.vt.edu/people/faculty/mahajan-roop.html
 1 https://physics.berkeley.edu/research/astrophysics
 0 https://beam.vt.edu/people/faculty/dillard.html
-1 https://www.cs.arizona.edu/about/faculty 
+1 https://www.cs.arizona.edu/about/faculty/
 1 https://www.math.ucdavis.edu/people/faculty/
 1 https://csci.williams.edu/people/faculty/
 0 https://school.eecs.wsu.edu/faculty/profile/?nid=bgolsen
@@ -485,7 +487,6 @@
 0 https://me.vt.edu/people/faculty/duarte-juliana.html
 1 https://mse.stanford.edu/people/faculty
 0 https://csd.cmu.edu/people/faculty/pravesh-kothari
-1 Statistics
 0 http://www.ics.uci.edu/faculty/profiles/view_faculty.php?ucinetid=mjcarey
 0 https://me.vt.edu/people/faculty/bohn-janhelge.html
 1 https://www.macalester.edu/mscs/facultystaff/
@@ -796,4 +797,4 @@
 1 https://ece.engineering.arizona.edu/faculty-staff
 1 https://engineering.jhu.edu/ams/faculty/
 1 https://cse.snu.ac.kr/en/people/faculty
-0 https://school.eecs.wsu.edu/faculty/profile/?nid=sakire.arslanay
+1 https://cci.uncc.edu/directory/sis/faculty
