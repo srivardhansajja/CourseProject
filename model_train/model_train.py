@@ -43,6 +43,7 @@ def print_statistics(predicted_labels, dev_labels):
 
 
 def create_physical_model(model):
+    f = open("../model_deploy/model", "w")
     pass
 
 
