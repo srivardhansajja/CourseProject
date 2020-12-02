@@ -24,8 +24,8 @@ def load_data():
 
 
 """
-print_statistics: Taken from ECE448/CS440 MP3: Naive Bayes' starter code for calculation of
-                  accuracy, precision, f1_score and recall
+print_statistics - Citation: Taken from UofI ECE448/CS440 MP3: Naive Bayes' starter 
+                    code for calculation of accuracy, precision, f1_score and recall
 """
 def print_statistics(predicted_labels, dev_labels):
 
