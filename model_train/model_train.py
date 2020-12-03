@@ -29,8 +29,10 @@ print_statistics - Citation: Taken from UofI ECE448/CS440 MP3: Naive Bayes' star
 """
 def print_statistics(predicted_labels, dev_labels):
 
-    yhats = predicted_labels
+    yhats = np.array(predicted_labels)
+    dev_labels = np.array(dev_labels)
     accuracy = np.mean(yhats == dev_labels)
+    #accuracy = np.mean([yhats[i] == dev_labels[i] for i in range(len(yhats))])
     tp = np.sum([yhats[i] == dev_labels[i] and yhats[i] == 1 for i in range(len(yhats))])
     precision = tp / np.sum([yhats[i] == 1 for i in range(len(yhats))])
     recall = tp / (np.sum([yhats[i] != dev_labels[i] and yhats[i] == 0 for i in range(len(yhats))]) + tp)
@@ -51,9 +53,9 @@ def main():
 
     train_set, train_labels, dev_set, dev_labels = load_data()
 
-    model = train(train_set, train_labels)
+    model, mean_len, std_dev = train(train_set, train_labels)
 
-    prediction = test(model, dev_set)
+    prediction = test(model, dev_set, mean_len, std_dev)
     
     print_statistics(prediction, dev_labels)
 
