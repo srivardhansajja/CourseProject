@@ -4,18 +4,17 @@ import re
 import math 
 
 
-def train(train_set : list, train_labels : list) :
+def train(train_set, train_labels):
 
     arr = np.zeros(train_labels.count(1))
     postive_words = Counter()
 
     index = 0 
 
-
     for url, label in zip(train_set, train_labels):
 
         if (label == 1):
-            arr[index] = len(train_set[index])
+            arr[index] = len(url)
             index += 1
 
         url = "/".join(url.split("/")[3:])
@@ -32,34 +31,32 @@ def train(train_set : list, train_labels : list) :
     mean_len = np.mean(arr)
     std_dev = np.std(arr)
             
-    
-    
     return postive_words, mean_len, std_dev
 
 
-def test(postive_words : Counter, dev_set : list, mean_len : float, std_dev : float ) -> list:
+def test(postive_words, dev_set, mean_len, std_dev):
 
-    toret = np.zeros(len(dev_set))
+    predicted_labels = np.zeros(len(dev_set))
 
-    set_ = {'/', '?', '.php','.html','.shtml'}
+    trim = {'/', '?', '.php','.html','.shtml'}
 
     for i in range(len(dev_set)):
 
-        for elem in set_:
+        for elem in trim:
             if dev_set[i].endswith(elem):
                 dev_set[i] = dev_set[i][:-len(elem)]
      
         for j in range(6):
             if (dev_set[i].endswith(postive_words.most_common(6)[j][0])):
-                toret[i] = 1
+                predicted_labels[i] = 1
 
         for j in range(7, 10):
             if ((postive_words.most_common(11)[j][0]) in dev_set[i]):
-                toret[i] = 1
+                predicted_labels[i] = 1
 
         if (np.absolute(len(dev_set[i]) - mean_len) <  std_dev/25):
-            toret[i] = 1
+            predicted_labels[i] = 1
     
 
-    return toret 
+    return predicted_labels 
    
