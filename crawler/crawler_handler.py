@@ -6,9 +6,9 @@ def webcrawl(primary_url):
     starter = "https://" + domain
 
     time_limit = 100
-    match_limit = 30
+    match_limit = 500
 
-    py_ver = 'python3.8'
+    py_ver = 'python' #dont push 
 
 
     py_command = py_ver + " crawler/crawler.py " + domain + " " + starter + " " + str(time_limit) + " " + str(match_limit)
