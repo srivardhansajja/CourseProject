@@ -1,5 +1,6 @@
 import numpy as np
 from trainer import train, test
+import json
 
 
 def load_data():
@@ -44,9 +45,11 @@ def print_statistics(predicted_labels, dev_labels):
     print("Recall:",recall)
 
 
-def create_physical_model(model):
-    f = open("../model_deploy/model", "w")
-    pass
+def create_physical_model(model, mean_len, std_dev):
+    jsondata = {"positives":model, "mean_len":mean_len, "std_dev": std_dev}
+    with open("../model_deploy/model.json", "w") as fp:
+        json.dump(jsondata, fp)
+    
 
 
 def main():
@@ -59,7 +62,7 @@ def main():
     
     print_statistics(prediction, dev_labels)
 
-    create_physical_model(model)
+    create_physical_model(model, mean_len, std_dev)
 
 
 if __name__ == "__main__":
