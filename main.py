@@ -25,7 +25,7 @@ def model():
                                          faculty_page_urls=filtered_urls,
                                          stats = stats)
 
-@app.route('/about')
+@app.route('/about', methods=['POST', 'GET'])
 def about():
     return render_template('about.html')
 

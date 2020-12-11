@@ -5,13 +5,12 @@ from collections import Counter
 
 
 def read_physical_model():
-    with open("model_deploy/model.json", "r") as fp:
+    with open("model_deploy/model_delete.json", "r") as fp:
         data = json.load(fp)
     positive_words = Counter(data["positives"])
     mean_len = data["mean_len"]
     std_dev = data["std_dev"]
     return positive_words, mean_len, std_dev
-
 
 
 def classify(postive_words, dev_set, mean_len, std_dev):

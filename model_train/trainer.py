@@ -1,7 +1,6 @@
 import numpy as np
 from collections import Counter
 import re
-import math 
 
 
 def train(train_set, train_labels):
@@ -57,6 +56,5 @@ def test(postive_words, dev_set, mean_len, std_dev):
         if (np.absolute(len(dev_set[i]) - mean_len) <  std_dev/25):
             predicted_labels[i] = 1
     
-
     return predicted_labels 
    
