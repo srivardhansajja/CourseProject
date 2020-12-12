@@ -47,7 +47,7 @@ def print_statistics(predicted_labels, dev_labels):
 
 def create_physical_model(model, mean_len, std_dev):
     jsondata = {"positives":model, "mean_len":mean_len, "std_dev": std_dev}
-    with open("../model_deploy/model.json", "w") as fp:
+    with open("../model_deploy/model_testing.json", "w") as fp:
         json.dump(jsondata, fp)
     
 

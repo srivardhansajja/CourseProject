@@ -6,7 +6,7 @@ def webcrawl(primary_url):
     starter = "https://" + domain
 
     time_limit = 100
-    match_limit = 500
+    match_limit = 100
 
     py_ver = 'python' #dont push 
 

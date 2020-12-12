@@ -1,7 +1,20 @@
 {% extends 'base.html' %} {% block content %}
-
+<br>
 <h1>
-    Hello world!
+    About 
 </h1>
+<br>
+<p style="color: #ffffff; font-family: 'Open Sans', sans-serif;">
+    In our project, we were able to augment the ExpertSearch system by adding functionality which makes the system
+     automatically crawl through faculty webpages given the primary university link/URL (illinois.edu, berkeley.edu, etc.),
+      instead of having to explicitly identify them.
+</p>
+<p style="color: #ffffff; font-family: 'Open Sans', sans-serif;">
+Our project has two main components. First, we implemented our own classifier, which given any URL uses text classification 
+techniques mentioned in this course to judge whether the given URL is that of a faculty directory page. Second, given a 
+primary university link we find all directory pages associated with that primary URL. We used the classifier built
+in part 1 for implementing part 2.
+
+</p>
 
 {% endblock %}
