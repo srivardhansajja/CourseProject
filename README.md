@@ -8,6 +8,7 @@ This is the course project for CS 410 Text Information Systems course at the Uni
 We were able to augment the ExpertSearch system by adding functionality which makes the system automatically crawl through faculty webpages given the primary university link/URL (illinois.edu, berkeley.edu, etc.), instead of having to explicitly identify them. Our project has two main components. First, we implemented our own classifier, which given any URL uses text classification techniques mentioned in this course to judge whether the given URL is that of a faculty directory page. Second, given a primary university link we find all directory pages associated with that primary URL. We used the classifier built in part 1 for implementing part 2.
 
 ## Team
+
 - Srivardhan Sajja
 - Navyaa Sanan
 
@@ -42,6 +43,31 @@ The program by default uses our pre-generated model. If you wish to update the p
 		python3 model_train/model_train.py
 
 This will output your testing statistics, including `accuracy`, `precision`, `recall` and `F1 score`, and generate `model_testing.json`. Once you are satisfied with your changes, if you wish to use your model in the crawling process instead, replace `model_testing.json` in line 50 of `model_train/model_train.py` with `model.json` and rerun the above statement in your terminal. Be careful as this will replace our original model, and re-cloning the project is the only way to revert it, unless you make a backup of it
+
+## Project Structure
+
+ - Source Code:
+	 - Crawler
+		 - /crawler/crawler.py
+		 - /crawler/crawler_handler.py
+	 - Model Training
+		 - /model_train/trainer.py
+		 - /model_train/model_train.py
+		 - /model_train/train_data.txt
+		 - /model_train/dev_data.txt
+	 - Model Deployment
+		 - /model_deploy/model_dep.py
+		 - /model_deploy/model.json
+	 - Flask App
+		 - /main.py
+		 - /templates/
+		 - /static/
+ - Documentation: 
+	 - ProjectProposal.pdf
+	 - ProjectProgressReport.pdf
+	 - ProjectDocumentation.pdf
+ - README .md
+	 - /
 
 ## Demo and Tutorial
 
