@@ -5,7 +5,7 @@ from collections import Counter
 
 
 def read_physical_model():
-    with open("model_deploy/model_delete.json", "r") as fp:
+    with open("model_deploy/model.json", "r") as fp:
         data = json.load(fp)
     positive_words = Counter(data["positives"])
     mean_len = data["mean_len"]
